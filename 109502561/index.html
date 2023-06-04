@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>D3 pie chart</title>
+    <link rel="stylesheet"href="style.css">
+</head>
+<body>  
+    <div class="pie_main">
+        <h1 id="country_name">選擇一個國家</h1>
+
+        <div class="pie">
+            <svg id="chart" width="300" height="300"></svg>
+        </div>
+
+        <select id="countrySelect"></select>
+        <button id="countryBtn">切換國家</button>
+        <div>
+            <h4 id="Children"></h4>
+            <h4 id="Youth"></h4>
+            <h4 id="Adult"></h4>
+            <h4 id="Elderly"></h4>
+
+        </div>
+
+    </div>
+
+    <div class="tooltip">
+        <div class="tip-header">
+            <h3></h3>
+            <h4></h4> 
+        </div>
+    </div>
+	
+    <script src="//unpkg.com/d3"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
