@@ -1,4 +1,4 @@
-d3.csv("data/test.csv").then(
+d3.csv("../data/World_Bank_labol_force_data.csv").then(
     res=>{
         ready(res)
     }
@@ -13,10 +13,11 @@ function ready(rawdata){
 
 function preprocess(data){
     data.forEach(function(d) {
-        d.Children = parseFloat(d.Children);
-        d.Youth = parseFloat(d.Youth);
-        d.Adult = parseFloat(d.Adult);
-        d.Elderly = parseFloat(d.Elderly);
+        d.Country_Name = d['Country Name'];
+        d.Children = parseFloat(d['Children, aged 0-14']);
+        d.Youth = parseFloat(d['Youth, aged 15-24']);
+        d.Adult = parseFloat(d['Adult, aged 25-64']);
+        d.Elderly = parseFloat(d['Elderly, aged 65+']);
     });
     return data;
 }

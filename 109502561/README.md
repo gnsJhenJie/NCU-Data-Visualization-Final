@@ -1,15 +1,3 @@
-## 資料更改
-***
-
-因為提供的資料(World_Bank_labol_force_data.csv)一些欄位標題的值沒辦法偵測，所以我將以下5個欄位改名後**存在新檔案test.csv**，更改時請務必小心。
-|原始欄位編號|  原始標題   | 新標題  |
-|---|  ----  | ----  |
-|A|Country Name|Country_Name|
-|K| Children, aged 0-14  | Children |
-|L| Youth, aged 15-24  | Youth |
-|M| Adult, aged 25-64  | Adult |
-|N| Elderly, aged 65+  | Elderly |
-
 ## index.html
 ***
 |元素       |  class/id 名稱     | 功能                 |
@@ -41,7 +29,28 @@
         btnclick(data);    //按下按鈕會發生的事
     }
     ```
-3. btnclick()
+
+3. 資料更改
+
+    資料(World_Bank_labol_force_data.csv)一些欄位標題的值我有重新取名，更改時請務必小心。
+    ```
+    data.forEach(function(d) {
+        d.Country_Name = d['Country Name'];
+        d.Children = parseFloat(d['Children, aged 0-14']);
+        d.Youth = parseFloat(d['Youth, aged 15-24']);
+        d.Adult = parseFloat(d['Adult, aged 25-64']);
+        d.Elderly = parseFloat(d['Elderly, aged 65+']);
+    });
+    ```
+    |原始欄位編號|  原始欄位標題   | 新欄位標題  |
+    |---|  ----  | ----  |
+    |A|Country Name|Country_Name|
+    |K| Children, aged 0-14  | Children |
+    |L| Youth, aged 15-24  | Youth |
+    |M| Adult, aged 25-64  | Adult |
+    |N| Elderly, aged 65+  | Elderly |
+
+4. btnclick()
     ```
     //設定圓餅圖參數
     var width = 300;
@@ -62,7 +71,7 @@
     d3.select("#countryBtn").on("click", click);
     ```
 
-4. click()
+5. click()
 
     根據選中的國家過濾資料，繪製圓餅圖，最後顯示過濾後的資料
 
