@@ -1,3 +1,11 @@
+## 注意
+因為我不知道要用哪一份資料，所以兩種我都有做
+有兩個資料夾
+1. 叫做SingleYear的資料夾存放使用World_Bank_labol_force_data.csv的版本，此版本僅有一個國家選項，參見：https://mikaiyen.github.io/D3final/
+
+
+2. 叫做MultiYear的資料夾存放使用join_database_w_definitions.csv的版本，此版本除了國家選項，還多一個年份選項，參見：https://mikaiyen.github.io/d3final_ver2/
+
 ## index.html
 ***
 |元素       |  class/id 名稱     | 功能                 |
@@ -88,5 +96,9 @@
 
 ## 成果展示:
 ***
+1. SingleYear:
 
-https://mikaiyen.github.io/D3final/
+    https://mikaiyen.github.io/D3final/
+2. MultiYear:
+
+    https://mikaiyen.github.io/d3final_ver2/

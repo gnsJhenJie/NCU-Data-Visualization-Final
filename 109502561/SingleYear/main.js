@@ -1,4 +1,4 @@
-d3.csv("../data/World_Bank_labol_force_data.csv").then(
+d3.csv("../../data/World_Bank_labol_force_data.csv").then(
     res=>{
         ready(res)
     }
@@ -19,6 +19,7 @@ function preprocess(data){
         d.Adult = parseFloat(d['Adult, aged 25-64']);
         d.Elderly = parseFloat(d['Elderly, aged 65+']);
     });
+    console.log(data)
     return data;
 }
 
@@ -41,7 +42,8 @@ function btnclick(data){
     var width = 300;
     var height = 300;
     var radius = Math.min(width, height) / 2;
-    var colors = d3.schemeCategory10;
+    var colors    = ['#FF8C8C','#8CFF8C','#8CFFFF','#CE8CFF'];
+    colors=colors.concat(d3.schemeCategory10);  //免得顏色不夠用
  
     var svg = d3.select("#chart")
         .append("svg")
@@ -106,6 +108,7 @@ function btnclick(data){
                 .attr("text-anchor", "middle")
                 .attr("x", centroid[0])
                 .attr("y", centroid[1])
+                .attr("font-variant","small-caps")//字體
                 .text(function() {
                     return d.data.property+': \r'+Math.floor((d.data.values*100))+"%"; //Math.floor()是因為有時候資料的小數點不知為啥會爆開
                 });
