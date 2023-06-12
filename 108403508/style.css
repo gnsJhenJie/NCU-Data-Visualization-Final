@@ -1,0 +1,42 @@
+.axis .domain{
+  stroke:none;
+}
+.x line{
+  stroke: rgb(214, 211, 206);
+}
+
+/* interactive 詳細資訊視窗設定 */
+.tooltip{
+  position: fixed;
+  opacity: 0;
+  pointer-events: none; /*避免出現聯或其他預設行為*/
+  background: #eee;
+  max-width: 250px;
+}
+
+.top-header{
+  border-bottom: 2px solid white;
+  padding: 0.9rem 1rem;
+}
+
+.top-body{
+  padding: 0.2rem 0;
+}
+
+h3{
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+/*rem:相對整個html em:相對當前div*/
+.tip-info{
+  margin: 0;
+  padding: 0.3rem 1em;
+  font-size: 0.7em;
+}
+
+/* 偶數元素設定不同背景樣式 */
+tip-info:nth-of-type(even){
+  background: #e0e0e0;
+}
