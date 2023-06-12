@@ -58,6 +58,7 @@ var colorlegend = d3.select("#colorlegend");
 
 
 const tip = d3.select('.tooltip');
+const map = d3.select('#map');
 // The svg
 var svg = d3.select("svg"),
   svg_width = +svg.attr("width"),
@@ -70,14 +71,14 @@ const chart_height = svg_height - (chart_margin.top + chart_margin.bottom);
   // Map and projection
 var path = d3.geoPath();
 var projection = d3.geoMercator()
-  .scale(120)
+  .scale(110)
   .center([0,20])
   .translate([chart_width / 2, chart_height / 2]);
 
 
 // convert index to label
 const indexToLabel = value => { return TypeMap[value];}
-const SPLICE_NUM = 4;
+const SPLICE_NUM = 5;
 
 
 function init(geoFeatures){
@@ -121,13 +122,10 @@ function init(geoFeatures){
 
 function drawMap(topo) {
     // draw header
-    let header = svg.select('#header').attr('class', 'bar-header')
-    .attr('transform', `translate(${svg_width/2}, ${chart_margin.top/2})`)
-    
-    .selectAll('text');
-    header.selectAll('tspan').remove();
-    header.append('tspan').text('World Bank Labol Force Data').style('font-size', '20px');
-    header.append('tspan').text(`${TypeMap[currentType]}`).attr('x', 0).attr('dy', '1.5em').attr('class', 'bar-subheader');
+    let header = d3.select('#header').select('text').attr('class', 'bar-header')
+    header.selectAll('p').remove();
+    header.append('p').text('World Bank Labol Force Data').style('font-size', '20px').style('text-align', 'center')
+    header.append('p').text(`${TypeMap[currentType]}`).attr('class', 'bar-subheader').style('text-align', 'center')
 
     let mouseOver = function(e) {
         d3.selectAll(".Country")
@@ -144,28 +142,36 @@ function drawMap(topo) {
         const thisBarData = d3.select(this).data()[0];
         const countryData = thisBarData.countryData;
 
-        // console.log(e)
+
         tip.transition()
-            .style('left', svg_width + 'px')
+            .style('left', 1200 + 'px')
             .style('top', chart_margin.top + 'px')
             .style('opacity', 0.98);
-        tip.select('h3').html(`${thisBarData.properties.name}, ${thisBarData.id}`);
-        tip.select('h4').html(
-            `${countryData["Income Level Name"] === undefined ? "" : countryData["Income Level Name"]}`
-        ).style('color', incomeColorScale(countryData["Income Level Name"]));
+        tip.select('#tip-country-name').html(`${thisBarData.properties.name}, ${thisBarData.id}`);
 
 
         if (countryData["Other Services"] === undefined){
+            tip.select('#tip-country-income').html("");
+            tip.select('#tip-country-pop').html("");
             tip.select('.tip-body').selectAll('p').data(['No Data'])
             .join('p')
             .attr('class', 'tip-info')
             .html(d=> d);
         }else{
             console.log()
+            tip.select('#tip-country-income').html(
+                `${countryData["Income Level Name"] === undefined ? "" : countryData["Income Level Name"]}`
+            ).style('color', incomeColorScale(countryData["Income Level Name"]));
+            tip.select('#tip-country-pop').html(
+                `Total population: ${countryData["Total population"] === undefined ? "" : countryData["Total population"]}`);
+            
             tip.select('.tip-body').selectAll('p').data(Object.keys(countryData).splice(SPLICE_NUM))
             .join('p')
             .attr('class', 'tip-info')
-            .html(d=> `${d} : ${countryData[d]}`);
+            .html(d=> {
+                const populationText = (d === TypeMap[currentType]) ? `<strong style="color: blue;">${d}</strong>` : d;
+                return `${populationText} : ${Math.round(countryData[d] * 100)}%`;
+            });
         }
     }   
 
@@ -183,10 +189,10 @@ function drawMap(topo) {
     }
 
     // Draw the map
-    svg.selectAll("path").remove();
+    mapPath = svg.select('#map-path');
+    mapPath.selectAll("path").remove();
 
-    svg.append("g")
-    .selectAll("path")
+    mapPath.selectAll("path")
     .data(topo.features)
     .enter()
     .append("path")
@@ -241,7 +247,6 @@ function drawColorLegend(){
     var colorScale = ColorScaleMap[currentType];
     const legendWidth = 200;
     const legendHeight = 20;
-
 
     colorlegend.attr("x", 0)
     .attr("y", 0)

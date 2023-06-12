@@ -15,23 +15,24 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.1/nouislider.min.js"></script>
     </head>
     <body>
-        <g id="map" witdth="900" height="1000">
-            <svg id="my_dataviz" width="1000" height="800">
-                <g id="header">
-                    <text>
-                    </text>
-                </g>
+        <div id="header" style="text-align: center;">
+            <text></text>
+        </div>
+        <div id="map" style="text-align:center">
+            <svg id="my_dataviz" width="800" height="600" >
+                <g id="map-path"></g>
                 <rect id="colorlegend">
                     <text>
                     </text>
                 <rect>
             </svg>
             <div id="slider" width="90" height="90"></div>
-        </g>        
+        </div>        
         <div class="tooltip">
             <div class="tip-header">
-                <h3></h3>
-                <h4></h4>
+                <h3 id="tip-country-name"></h3>
+                <h4 id="tip-country-income"></h4>
+                <h4 id="tip-country-pop"></h4>
             </div>
             <div class="tip-body">
             </div>
