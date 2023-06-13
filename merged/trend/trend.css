@@ -1,0 +1,13 @@
+:root {
+    --my-bg-color: #eee;
+    --my-font-color: #555;
+}
+
+[data-theme="dark"] {
+    --my-bg-color: #232321a6;
+    --my-font-color: whitesmoke;
+}
+
+.axis-title {
+    fill: var(--my-font-color);
+}

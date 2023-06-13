@@ -1,0 +1,63 @@
+:root {
+    --my-bg-color: #eee;
+    --my-font-color: #555;
+}
+
+[data-theme="dark"] {
+    --my-bg-color: #232321a6;
+    --my-font-color: whitesmoke;
+}
+
+
+/* .pie_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+
+/* interactive 詳細資訊視窗設定 */
+
+.tooltip {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    /*避免出現連結或其他預設行為*/
+    max-width: 200px;
+}
+
+.tooltip {
+    background-color: var(--my-bg-color);
+}
+
+.tip-header {
+    padding: 0.9rem 1rem;
+}
+
+.tip-body {
+    padding: 0.2rem 0;
+}
+
+h3,
+h4 {
+    margin: 0;
+    color: var(--my-font-color);
+}
+
+h4 {
+    font-weight: normal;
+}
+
+.tip-info {
+    margin: 0;
+    padding: 0.3rem 1em;
+    font-size: 0.8em;
+}
+
+
+/*偶數元素設定不同背景樣式*/
+
+.tip-info:nth-of-type(even) {
+    background: var(--my-bg-color);
+}

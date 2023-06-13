@@ -1,0 +1,31 @@
+.tooltip {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    /*避免出現連結或其他預設行為*/
+    /* background: #eee; */
+    max-width: 50em;
+    margin-top: 5rem;
+    right: 4em;
+}
+
+.tip-header {
+    border-bottom: 2px solid white;
+    padding: 0.9rem lrem;
+}
+
+.tip-body {
+    padding: 0.1rem 0;
+}
+
+h3,
+h4 {
+    color: #555;
+    margin: 0;
+}
+
+.tip-info {
+    margin: 0;
+    padding: 0.1rem 1em;
+    font-size: 0.8em;
+}
