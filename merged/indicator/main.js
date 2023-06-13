@@ -29,8 +29,8 @@ function filterData(data) {
 
 // prepare data
 function chooseData(metric, dataClean) {
-    // const thisData = dataClean.sort((a, b) => b[metric] - a[metric]).filter((d, i) => i < 10)
-    const thisData = dataClean.sort((a, b) => b[metric] - a[metric]).filter((d, i) => i < 11 && i > 0)
+    const thisData = dataClean.sort((a, b) => b[metric] - a[metric]).filter((d, i) => i < 10)
+        // const thisData = dataClean.sort((a, b) => b[metric] - a[metric]).filter((d, i) => i < 11 && i > 0)
         // 第一名原本是Suriname，但太極端，所以不要
     return thisData
 }
