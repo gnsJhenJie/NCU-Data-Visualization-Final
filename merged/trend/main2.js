@@ -424,7 +424,7 @@ d3.csv("clean_new_lineplotData.csv").then(function(data) {
             path3 = d3.selectAll(".path3")
             length3 = path3.node().getTotalLength()
             length3 = 3500
-            console.log("length3:" + length3)
+                // console.log("length3:" + length3)
 
             lineAnimation(path3, length3)
         }
