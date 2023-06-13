@@ -66,7 +66,7 @@ function main(data){
         var selectedCountry = d3.select("#countrySelect").property("value");
         // 根據選中的國家過濾資料
         var yearfilteredData = data.filter(function(d) {
-            return d.Country_Name === selectedCountry;
+            return d.Country_Name === selectedCountry & d.Subsample === 'All';
         });
         console.log(yearfilteredData)
 
