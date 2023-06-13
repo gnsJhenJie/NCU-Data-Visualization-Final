@@ -56,18 +56,66 @@
             <div class="ts-tab is-pilled">
               <button
                 class="item is-active lineplotBtn"
-                data-name="MonthlyWagesUSD"
-                id="gender"
+                data-name="Wage"
+                id="Wage"
               >
                 年收入排行
               </button>
               <button
                 class="item lineplotBtn"
-                data-name="WageGap"
-                id="education"
+                data-name="WorkingHours"
+                id="WorkingHours"
               >
+                工時排行
+              </button>
+              <button class="item lineplotBtn" data-name="WageGap" id="WageGap">
                 男女薪資平等程度
               </button>
+            </div>
+          </div>
+        </div>
+        <div id="type-selection" style="display: none">
+          <div class="ts-space is-large"></div>
+          <div class="ts-row is-center-aligned">
+            <div class="column">
+              <div class="ts-selection">
+                <label class="item">
+                  <input
+                    type="radio"
+                    name="all"
+                    class="selection-item first-selection-item"
+                    id="selection-item-0"
+                  />
+                  <div class="text" id="selection-label-0">全部產業</div>
+                </label>
+                <label class="item">
+                  <input
+                    type="radio"
+                    name="aircon"
+                    class="selection-item"
+                    id="selection-item-1"
+                  />
+                  <div class="text" id="selection-label-1">冷氣</div>
+                </label>
+                <label class="item">
+                  <input
+                    type="radio"
+                    name="aircon"
+                    class="selection-item"
+                    id="selection-item-2"
+                  />
+                  <div class="text" id="selection-label-2">暖氣</div>
+                </label>
+                <label class="item">
+                  <input
+                    type="radio"
+                    name="aircon"
+                    class="selection-item"
+                    id="selection-item-3"
+                  />
+                  <div class="text" id="selection-label-3">送風</div>
+                </label>
+              </div>
             </div>
           </div>
         </div>
